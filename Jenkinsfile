@@ -1,8 +1,8 @@
 pipeline {
   agent {
     docker {
-      image 'gradle:lastest'
       args '-v /jenkins/.gradle:/jenkins/.gradle'
+      image 'gradle:latest'
     }
 
   }
