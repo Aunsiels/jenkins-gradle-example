@@ -9,13 +9,19 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'bash gradlew :build'
+        sh './gradlew :build'
       }
     }
     stage('Test') {
       steps {
-        sh 'bash gradlew :test'
+        sh './gradlew :test'
         junit 'build/test-results/test/*xml'
+      }
+    }
+    stage('Static Tests') {
+      steps {
+        sh './gradlew :check'
+        recordIssues enabledForFailure: true, tool: checkStyle(pattern: 'build/reports/checkstyle/main.xml'), sourceCodeEncoding: 'UTF-8'
       }
     }
   }
