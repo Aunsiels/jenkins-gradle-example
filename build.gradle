@@ -8,6 +8,10 @@
  
 plugins {
     id 'checkstyle'
+    id 'pmd'
+    id "com.github.spotbugs" version "1.6.9"
+    id "net.saliman.cobertura" version "2.6.0"
+    id "de.aaschmid.cpd" version "1.2"
 }
 
 // Apply the java-library plugin to add support for Java Library

@@ -21,7 +21,10 @@ pipeline {
     stage('Static Tests') {
       steps {
         sh './gradlew :check'
-        recordIssues enabledForFailure: true, tool: checkStyle(pattern: 'build/reports/checkstyle/main.xml'), sourceCodeEncoding: 'UTF-8'
+        recordIssues enabledForFailure: true, tool: checkStyle(pattern: 'build/reports/checkstyle/*.xml'), sourceCodeEncoding: 'UTF-8'
+        recordIssues enabledForFailure: true, tool: cpd(pattern: 'build/reports/cpd/*.xml'), sourceCodeEncoding: 'UTF-8'
+        recordIssues enabledForFailure: true, tool: pmdParser(pattern: 'build/reports/pmd/*.xml'), sourceCodeEncoding: 'UTF-8'
+        recordIssues enabledForFailure: true, tool: spotBugs(pattern: 'build/reports/spotbugs/*xml'), sourceCodeEncoding: 'UTF-8'
       }
     }
   }
