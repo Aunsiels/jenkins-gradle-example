@@ -16,6 +16,23 @@ pipeline {
       steps {
         sh './gradlew :test'
         junit 'build/test-results/test/*xml'
+        ./gradlew :cobertura
+      }
+      // Send Coverage results
+      post{
+        always{
+          step([$class: 'CoberturaPublisher',
+                         autoUpdateHealth: false,
+                         autoUpdateStability: false,
+                         coberturaReportFile: 'build/reports/cobertura/coverage.xml',
+                         failNoReports: false,
+                         failUnhealthy: false,
+                         failUnstable: false,
+                         maxNumberOfBuilds: 10,
+                         onlyStable: false,
+                         sourceEncoding: 'ASCII',
+                         zoomCoverageChart: false])
+        }
       }
     }
     stage('Static Tests') {
