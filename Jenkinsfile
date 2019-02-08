@@ -16,7 +16,7 @@ pipeline {
       steps {
         sh './gradlew :test'
         junit 'build/test-results/test/*xml'
-        ./gradlew :cobertura
+        sh './gradlew :cobertura'
       }
       // Send Coverage results
       post{
