@@ -24,6 +24,7 @@ sonarqube {
     property "sonar.projectKey", "krish3402_jacoco"
     property "sonar.organization", "krish3402-1"
     property "sonar.host.url", "https://sonarcloud.io"
+    property "SONAR_TOKEN", "9984c19b9a7ad7984ea1f41aa2fd60a544310b43"
   }
 }
 
