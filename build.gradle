@@ -29,6 +29,7 @@ sonarqube {
     property "sonar.host.url", "https://sonarcloud.io"
     property "sonar.login", "7d53de8cd1d375d73bd39c8bc5c48c8f41447d09"
     property "sonar.java.binaries", "build/classes/java/**"
+    property "sonar.exclusions", "**/test/**"
     
     
   }
