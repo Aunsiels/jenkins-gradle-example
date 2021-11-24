@@ -21,10 +21,16 @@ plugins {
 
 sonarqube {
   properties {
-    property "sonar.projectKey", "krish3402_jacoco"
+    property "sonar.projectKey", "krish3402_jenkins-gradle-example"
     property "sonar.organization", "krish3402-1"
+    property "sonar.sources", "src"
+    property "sonar.language", "java"
+    property "sonar.sourceEncoding", "UTF-8"
     property "sonar.host.url", "https://sonarcloud.io"
-    property "sonar.projectKey", "e95ab775b474c07c1ad25c0c5a30c86b591f47c3"
+    property "sonar.projectKey", "7d53de8cd1d375d73bd39c8bc5c48c8f41447d09"
+    property "sonar.java.binaries", "build/classes/java/**"
+    
+    
   }
 }
 
